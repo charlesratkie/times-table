@@ -27,7 +27,10 @@ int main()
 	int answer = 0;
 	int question = 0;
 
-	numbers[rand1][rand2];
+	//GABE - You hvae to declare and initialize the array.
+	//Right now you're trying to set it to be a 0 wide and 0 deep array.
+	//numbers[rand1][rand2];
+	int numbers[13][13] = { };
 
 	// randomize both variables
 	//random_num_one = (rand()%12+1);
@@ -67,6 +70,20 @@ int main()
 		    srand(time(0));
 		    rand1 = (rand()%12+1);
 		    rand2 = (rand()%12+1);
+			
+			//GABE - This is where you check the array to see if
+			//you've used it before. PSUEDOCODE, not real code below.
+			
+			QuestionAskedBefore = numbers[rand1][rand2]
+			
+			If QuestionAskedBefore = 1
+			{
+				//We need to bail because we've asked it before.
+				Continue
+			}
+			//Don't forget that you need up *UPDATE* the array to be set to 1 (true)
+			//if you actually use the question.
+			//I would do that if they get the answer right (in the if below)
 
 		    question = (rand1 * rand2);
 		    // read out randomized variables and multiply together.
