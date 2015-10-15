@@ -1,0 +1,119 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	// Seed the rand
+	srand(time(0));
+
+
+	//User variables
+	char response;
+	int wrong_answer = 0;
+	int right_answer = 0;
+
+	//random number variables
+	int random_num_one = 0;
+	int random_num_two = 0;
+	int answer = 0;
+	int question = 0;
+
+	//points variable
+	int point_tracker = 0;
+
+
+	int max_right_answer[144];
+	int random_num_array[];
+
+
+
+
+	// Welcome the User to the game -- Explain the rules
+	cout << "Welcome to the Times Table Game!\n";
+	cout << "You will be given a question (i.e 5 * 5) randomly from numbers 1 - 12.\n";
+	cout <<	"If you guess a question wrong but are within 5 of the answer"
+		 << "You will get another chance.";
+	cout << "A point will be given for each right answer." << endl << endl;
+
+	// Ask the user if they would like to play
+	cout << "Would you like to play?";
+	cin >> response; >> endl >> endl;
+
+	if ( response == 'y' || 'Y' )
+	{
+		cout << "LETS PLAY!\n\n";
+
+		while ( wrong_answer < 3 || right_answer < max_right_answer )
+		{
+			// Seed the rand
+			srand(time(0));
+			// set the random_num_one and random_num_two
+		    // to be randomized using rand.
+		    random_num_one = (rand() % 12 + 1 );
+		    random_num_two = (rand() % 12 + 1 );
+		    // store the product of the random variables
+		    question = random_num_one * random_num_two;
+
+		    // read out randomized variables and multiply together.
+		    cout << random_num_one << " * " << random_num_two << " = " ;
+		    // read in user's answer.
+		    cin >> answer;
+
+		    if ( answer != question )
+		    {
+		    	cout << "Sorry, that was incorrect.\n";
+		    	// Add a counter to track # of wrong answers.
+		    	for (int i = 0; i < 4; ++i)
+		    		{
+		    			wrong_answer++;
+		    		}
+		    }
+
+		    else
+		    {
+		    	// Add a point system to award # of right answers.
+				point_tracker = point_tracker + 1;
+
+				cout << "You are correct!\n";
+				cout << "Points: " << point_tracker; << endl;
+
+		    }
+
+
+
+
+
+
+
+		}
+	}
+
+	else 
+	{
+		cout << "Awe, alright. Maybe next time!\n";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	return 0;
+}
